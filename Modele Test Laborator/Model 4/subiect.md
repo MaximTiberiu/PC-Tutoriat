@@ -1,4 +1,4 @@
-# Modelul 3 - Test Laborator 1
+# Modelul 4 - Test Laborator 1
 
 O companie bancară deține o bază de date a clienților în care sunt stocate următoarele informații: nume, debit_cont, codificat, stare_îndatorare. Presupunem că:
 - numele unui client (numele de familie, fără spații) nu depășește 40 de caractere;
