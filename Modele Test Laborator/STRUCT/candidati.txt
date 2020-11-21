@@ -1,0 +1,11 @@
+10
+125 Alexandrescu 9.5 9.7 10
+129 Popa 8.75 9.25 9.55
+568 Gava 4 4.5 4
+786 Popescu 10 10 10
+453 Ionescu 7.5 9.5 8.8
+147 Alexandrescu 3 3 3
+126 Popa 4 5 2
+578 Gava 4 4.5 4
+796 Popescu 10 10 10
+553 Ionescu 7.5 9.5 8.8

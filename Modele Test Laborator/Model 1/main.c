@@ -70,16 +70,12 @@ int binToDec(int x) {
 }
 
 int citireDecodificata(int nrLinie, int nrStud, FILE* fin, int r, int key) {   
-    assert(nrLinie <= nrStud);
+    if (nrLinie > nrStud) return -1;
 
     char buffer[32];
 
     for(int i = 0 ; i < nrLinie - 1 ; i++)
-    {
-        //fgets(buffer, 32, fin); 
-        fscanf(fin, "%s", buffer);
-        int ch = fgetc(fin);
-    }
+        fgets(buffer, 32, fin); 
     
     fscanf(fin, "%s", buffer); // aici se afla legitimatia de la nrLinie
 
@@ -114,7 +110,8 @@ int main() {
     FILE* bfin = fopen("legitimatiiBinar.txt", "r");
     assert(bfin != NULL);
 
-    //printf("%d\n", citireDecodificata(3, nrStud, bfin, r, key)); // nu da bine
+    int x = citireDecodificata(2, nrStud, bfin, r, key);
+    printf("%d\n", x);
 
     fclose(bfin);
 
