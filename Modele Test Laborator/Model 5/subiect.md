@@ -1,11 +1,11 @@
 # Modelul 5 - Test Laborator 1
 
-O companie bancară deține o bază de date a clienților în care sunt stocate următoarele informații: nume, debit_cont, codificat, stare_îndatorare. Presupunem că:
-- numele unui client (numele de familie, fără spații) nu depășește 40 de caractere;
-- câmpul debit cont reprezintă o valoare numerică în format virgulă mobilă cu limita superioară 100000;
-- stare_îndatorare este dată doar de valori corespunzătoare lui îndatorat sau neîndatorat.
-Implementați următoarele funcții pentru a ajuta banca să realizeze operațiunile corespunzătoare:
-1. Funcție care citește întreaga bază de date cu informațiile corespunzătoare (de la tastatură), impunând limitele specificate în enunț. Dimensiunea câmpului care specifică starea de îndatorare a clientului este de 1 bit. Folosiți structura cu dimensiune minimă.
-2. Banca dorește să transfere baza de date în condiții sigure, de aceea se codifică debitul de cont după cum urmează: se calculează adunarea dintre numarul de zero-uri din primul octet si cel din ultimul octet din reprezentarea in baza 2 a valorii debitului și se memoreaza în câmpul cu numele codificat. Scrieți o funcție care completează câmpurile codificat din toată baza de date.
-3. Funcție care reordonează baza de date după cum urmează: clienții îndatorați cu un debit pe cont mai mare de 1000, clienții îndatorați cu un debit pe cont mai mic sau egal cu 1000, clienții neîndatorați.
-4. . Funcție de scriere în fișier. Funcția va executa scrierea în fișier a câmpurilor asociate unui client (primit ca argument) în format: nume debit_cont stare_indatorare evitând scrierea zecimalelor din valoarea debit cont-urilor. Dacă un câmp nu exista, se va scrie caracterul ’-’. Extrageți din fișier numele clienților neîndatorați cu debite peste 200.
+Compania aeriană TAROM stochează la fiecare zbor baza de date a pasagerilor cu următoarele
+informații: nume, clasa zbor, greutate bagaj, cod. Presupunem că: numele unui client
+nu depășește 50 de caractere, câmpul clasa zbor poate stoca doar 4 valori posibile corespunzătoare claselor de zbor A,B,C sau D. Câmpul greutate bagaj reprezintă o valoare numerică în format virgulă mobilă cu limita superioară 100. Implementați următoarele funcții
+pentru a ajuta compania să realizeze operațiunile corespunzătoare:
+1. Funcție care citeșteîntreaga bază de date a pasagerilor, cu informațiile corespunzătoare, din stream-ul stdin, impunând limitele specificate în enunț. Dimensiunile câmpurilor vor fi alocate în modul cel mai economic. Indicație: Folosiți câmpuri de biți pentru a limita dimensiunea câmpurilor. Citiți valori
+ale câmpurilor care respectă limitele specificate în enunț.
+2. La aterizare se dorește reverificarea pasagerilor prin codul asociat fiecărui pasager. De aceea se calculează codul fiecărui pasager pe baza primului caracter din numele său, după cum urmează: codul este dat de numărul de biți 0 din reprezentarea binară a codului ASCII a primului caracter. Scrieți o funcție care completează câmpurile cod din toată baza de date.
+3. Funcție care reordonează baza de date după clasa de zbor pe baza importanței: clasa A fiind cea mai importantă, iar D cea mai puțin importantă.
+4. Funcție care primește un fișier text în care se află informațiile pasagerilor in format: nume clasa_zbor greutate_bagaj cu spațiere arbitrară. Funcția va executa următoarea interogare de selecție: afișează la ecran numele pasagerilor cu bagaje mai grele de 30 (kg). Indicații: pentru punctaj maxim tratați cât mai multe excepții: inexistența fișierului, inexistența unui câmp de pe o linie, valoare invalidă a câmpului de (caracter diferit de A, B, C sau D) etc.
