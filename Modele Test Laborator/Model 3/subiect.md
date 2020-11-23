@@ -12,4 +12,5 @@ Implementați următoarele funcții pentru a ajuta banca să realizeze operațiu
     - altfel, bit_paritate = 1.
   Scrieți o funcție care primește baza de date a clienților, iar pentru fiecare client numără în mod eficient biții de 1 din reprezentarea câmpului IBAN și completează câmpul bitului de paritate.
 3. Funcție care reordonează baza de date după câmpul de stare civilă: toți clienții necăsătoriți vor apărea înaintea celor căsătoriți.
-4. Funcție care primește un fișier text în care se află informațiile clienților în formatul *nume IBAN stare_civilă* cu spațiere arbitrară. Afișați IBAN și bit_paritate pentru fiecare client într-un nou fișier.
+4. Funcție care primește un fișier text în care se află informațiile clienților în formatul *nume IBAN stare_civilă* cu spațiere arbitrară. Afișați IBAN și bit_paritate pentru fiecare client într-un nou fișier. Funcția va executa următoarea interogare de selecție: afișează la ecran toți clienții (din fișier) necăsătoriți al căror nume satisface condiția ca numărul de consoane este (strict) mai mare decăt numărul de vocale. Se va evita memorarea informațiilor clienților la
+nivel de tablou sau linie de fișier.

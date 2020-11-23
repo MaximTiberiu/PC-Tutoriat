@@ -1,0 +1,11 @@
+# Modelul 7 - Test Laborator 1
+
+Compania aeriană TAROM stochează la fiecare zbor baza de date a pasagerilor cu următoarele informații: nume, clasa zbor, greutate bagaj, cod. Presupunem că: numele unui client nu depășește 30 de caractere, câmpul clasa zbor stochează doar 2 valori posibile corespunzătoare claselor de zbor A sau B. Câmpul greutate bagaj reprezintă o valoare numerică în format virgulă mobilă cu limita superioară 500. Implementați următoarele funcții pentru a ajuta compania să realizeze operațiunile corespunzătoare:
+1. Funcție care citește și memorează corespunzător întreaga bază de date a pasagerilor, cu informațiile aferente, din fluxul de date stdin (impunând limitele specificate în enunț). Dimensiunile câmpurilor vor fi alocate în modul cel mai economic. Indicație: Folosiți câmpuri de biți pentru a limita dimensiunea câmpurilor. Citiți valori ale câmpurilor care respectă limitele specificate în enunț.
+2. La aterizare se dorește reverificarea pasagerilor prin codul asociat fiecărui pasager. De aceea se calculează codul fiecărui pasager pe baza primului caracter din numele său, după cum urmează: codul este dat de numărul de biți 0 din reprezentarea binară a codului ASCII a primului caracter. Scrieți o funcție care completează câmpurile cod din toată baza de date.
+3. Funcție care reordonează baza de date după greutatea bagajelor: primul va fi pasagerul cu cel mai greu bagaj, iar ultimul pasager cu cel mai usor bagaj.
+4. Funcție care primește un fișier text în care se află informațiile clienților pe primele 3 linii in format:
+**Nume1 Nume2**
+**Clasa1 Clasa2**
+**Bagaj1 Bagaj2**
+cu spațiere arbitrară. Funcția va executa următoarea interogare de selecție: afișează la ecran numele pasagerilor (din fișier) care circulă la clasa B si au un bagaj mai greu de de 30 (kg). Se va evita memorarea informațiilor pasagerilor la nivel de linie (nu se va memora o linie întreagă în bloc) sau de structură (nu se va memora informația în structuri). Indicații: pentru punctaj maxim tratați cât mai multe excepții: inexistența fișierului, număr inconsistent de valori pe o linie, valoare invalidă a câmpului de (caracter diferit de A, B, C sau D) etc.

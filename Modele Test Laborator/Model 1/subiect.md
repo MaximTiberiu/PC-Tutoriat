@@ -5,7 +5,7 @@ O selecție secretă din baza de date a studenților FMI se intentionează a fi 
 1. Funcție de citire a bazei de date a studenților selectați, folosind structura:
     ```
     struct student {
-        int nr_legitimație;
+        unsigned int nr_legitimație;
         char nume[30];
     }
     ```
