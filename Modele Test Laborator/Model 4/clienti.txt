@@ -1,0 +1,6 @@
+5
+Lapadus 7895.4 1
+Popescu 8765.4 1
+Popa 123.55 0
+Lapa 99.09 1
+Caliniuc 10562.8 0
