@@ -134,7 +134,9 @@ int main() {
     citire(nrClienti, c, fin);
     fclose(fin);
     codifica(nrClienti, c);
-    //sortare(nrClienti, c);
+    sortare(nrClienti, c);
+
+    printf("\n\n\n\n");
 
     FILE* fin1 = fopen("D:\\CTI\\CTI2xx\\CTI21x\\PC-Tutoriat\\Modele Test Laborator\\Model 4\\clienti1.txt", "r");
     assert(fin1 != NULL);
