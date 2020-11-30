@@ -1,0 +1,5 @@
+Pppa 12563 0
+Lacatus 69852 1
+Gava 9875 0
+Popescu 12549 1
+Alexandrescu 12343 0
