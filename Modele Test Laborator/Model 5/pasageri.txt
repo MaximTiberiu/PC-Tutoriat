@@ -1,0 +1,4 @@
+Popa A 12.3
+George B 34.5
+Calinescu D 56.3
+Calin C 25.34
