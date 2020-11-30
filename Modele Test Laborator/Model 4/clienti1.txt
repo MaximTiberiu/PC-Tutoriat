@@ -1,6 +1,6 @@
-Popescu 205 1
-Lacatus - 0
-Ionescu 356 0
-Cristea 1025 1
-- 2000 1
-Popa - 1
+Popescu     205          1
+Lacatus               -      0
+          Ionescu       356     0
+Cristea      1025   1
+-       2000  1
+Popa    -   1
