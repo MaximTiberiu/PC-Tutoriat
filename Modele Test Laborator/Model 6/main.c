@@ -56,14 +56,15 @@ void afisare(int nrP, Pasager p[]) {
         printf("%s %c %.2f %u\n", p[i].nume, p[i].clasa_zbor, p[i].greutate_bagaj, p[i].cod);
 }
 
-unsigned int codPasager(char ch) {
+// recursiva
+unsigned int codPasager1(char ch) {
     if(!ch) return 0;
-    return (ch & 1 ? 0 : 1) + codPasager(ch >> 1);
+    return (ch & 1 ? 0 : 1) + codPasager1(ch >> 1);
 }
 
 void completareDate(int nrP, Pasager p[]) {
     for(int i = 0 ; i < nrP ; i++)
-        p[i].cod = codPasager(p[i].nume[0]);
+        p[i].cod = codPasager1(p[i].nume[0]);
 }
 
 int cmpGreutate(const void* pa, const void* pb) {
@@ -75,34 +76,32 @@ int cmpGreutate(const void* pa, const void* pb) {
     return 0; // if(p1->greutate_bagaj == p2->greutate_bagaj)
 }
 
-void sortareGreutate(int nrP, Pasager p[]) {
+void sortareGreutate(int nrP, Pasager p[]){
     qsort(p, nrP, sizeof(Pasager), cmpGreutate);
     afisare(nrP, p);
 }
 
 void citirePasageri(FILE* finNume, FILE* finClasa, FILE* finGreutate) {
-    // mutam pointerul finClasa un rand
+    // mutam pointerul finClasa pe randul urmator
     fscanf(finClasa, "%*[^\n]\n");
-    // mutam pointerul finGreutate doua randuri
-    fscanf(finGreutate, "%*[^\n]\n"); // primul rand
-    fscanf(finGreutate, "%*[^\n]\n"); // al doilea rand
 
-    // facem citiri simultane
+    //  mutam pointerul finGreutate doua randuri
+    fscanf(finGreutate, "%*[^\n]\n");
+    fscanf(finGreutate, "%*[^\n]\n");
 
     char nume[31];
-    char clasa;
+    char clasa[2];
     float greutate;
 
-    while(fscanf(finNume, "%s", nume) == 1 && fscanf(finClasa, "%c", &clasa) == 1 && fscanf(finGreutate, "%f", &greutate) == 1) {
-        //printf("------%s %c %.2f\n", nume, clasa, greutate);
-        char ch = fgetc(finClasa);
-        if(clasa == 'B' && greutate >= 30)
+    while(fscanf(finNume, "%s", nume) == 1 && fscanf(finClasa, "%s", clasa) == 1 && fscanf(finGreutate, "%f", &greutate) == 1) {
+        //printf("----%s %c %.2f\n", nume, clasa, greutate);
+        if(clasa[0] == 'B' && greutate >= 30)
             printf("%s\n", nume);
     }
 }
 
 int main() {
-    int nrP;
+    /*int nrP;
     Pasager p[100];
 
     printf("Numarul pasagerilor: ");
@@ -112,10 +111,11 @@ int main() {
     completareDate(nrP, p);
     afisare(nrP, p);
 
-    printf("\n\n DUPA SORTARE:\n");
+    printf("\n\nDUPA SORTARE:\n");
     sortareGreutate(nrP, p);
+*/
+    printf("\n\nAFISARE DIN FISIER:\n");
 
-    printf("\n\n FISIER:\n");
     FILE* finNume = fopen("D:\\CTI\\CTI2xx\\CTI21x\\PC-Tutoriat\\Modele Test Laborator\\Model 6\\pasageri.txt", "r");
     assert(finNume != NULL);
     FILE* finClasa = fopen("D:\\CTI\\CTI2xx\\CTI21x\\PC-Tutoriat\\Modele Test Laborator\\Model 6\\pasageri.txt", "r");

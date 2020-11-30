@@ -61,6 +61,63 @@ void afisare(int nrC, Client c[]) {
         printf("%s %u %u %u\n", c[i].nume, c[i].IBAN, c[i].stare_civila, c[i].bit_paritate);
 }
 
+unsigned int bitParitate(unsigned int x) {
+    unsigned int cnt = 0;
+    while(x) {
+        if(x & 1) cnt++;
+        x >>= 1; // x = x >> 1;
+    }
+    if(cnt % 2 == 0) return 0;
+    return 1;
+}
+
+void completareDate(int nrC, Client c[]) {
+    for(int i = 0 ; i < nrC ; i++)
+        c[i].bit_paritate = bitParitate(c[i].IBAN);
+}
+
+int cmpStareCivila(const void* ca, const void* cb) {
+    Client* c1 = (Client*)ca;
+    Client* c2 = (Client*)cb;
+
+    if(c1->stare_civila == 0 && c2->stare_civila == 1) return -1;
+    if(c1->stare_civila == 1 && c2->stare_civila == 0) return 1;
+    return 0; // if(c1->stare_civila == c2->stare_civila)
+}
+
+void sortareStareCivila(int nrC, Client c[]) {
+    qsort(c, nrC, sizeof(Client), cmpStareCivila);
+    afisare(nrC, c);
+}
+
+unsigned int verificareNume(char nume[]) {
+    int len = strlen(nume);
+    char vocale[11] = "aeiouAEIOU\0";
+
+    int cons = 0, voc = 0;
+
+    for(int i = 0 ; i < len ; i++) {
+        if(strchr(vocale, nume[i]) != NULL)
+            voc++;
+        else
+            cons++;
+    }
+
+    if(cons > voc) return 1;
+    return 0;
+}
+
+void citireClienti(FILE* fin) {
+    char nume[31];
+    unsigned int IBAN;
+    char stare_civila;
+
+    while(fscanf(fin, "%s %u %c", nume, &IBAN, &stare_civila) == 3) {
+        if(stare_civila == '0' && verificareNume(nume))
+            printf("%s %u %u\n", nume, IBAN, bitParitate(IBAN));
+    }
+}
+
 int main() {
     int nrC;
     Client c[100];
@@ -68,7 +125,16 @@ int main() {
     printf("Numarul de clienti este: ");
     scanf("%d", &nrC);
     citire(nrC, c);
+    completareDate(nrC, c);
     afisare(nrC, c);
 
+    printf("\n\n DUPA SORTARE: \n");
+    sortareStareCivila(nrC, c);
+
+    printf("\n\n AFISARE DIN FISIER: \n");
+    FILE* fin = fopen("D:\\CTI\\CTI2xx\\CTI21x\\PC-Tutoriat\\Modele Test Laborator\\Model 3\\clienti.txt", "r");
+    assert(fin != NULL);
+    citireClienti(fin);
+    fclose(fin);
     return 0;
 }
